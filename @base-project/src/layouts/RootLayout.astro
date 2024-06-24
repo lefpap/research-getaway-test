@@ -1,0 +1,46 @@
+---
+import { Navbar } from "@/components/blocks/Navbar";
+import "@/styles/base.css";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+const { pathname } = Astro.url;
+
+const TITLE = pathname === "/" ? title : `Astro | ${title}`;
+
+const navLinks = [
+  {
+    title: "Articles",
+    href: "/posts/articles",
+  },
+  {
+    title: "Projects",
+    href: "/posts/projects",
+  },
+  {
+    title: "Publications",
+    href: "/posts/publications",
+  },
+  {
+    title: "Contact",
+    href: "/contact",
+  },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{TITLE}</title>
+  </head>
+  <body>
+    <Navbar navLinks={navLinks} client:load />
+    <slot />
+  </body>
+</html>
