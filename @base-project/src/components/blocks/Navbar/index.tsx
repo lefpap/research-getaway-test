@@ -4,6 +4,7 @@ import {
   MagnifyingGlassIcon,
   RssIcon,
   Bars3Icon,
+  XMarkIcon,
 } from "@heroicons/react/24/outline";
 
 import { Button } from "@/components/ui/button";
@@ -104,15 +105,18 @@ function NavbarDrawer() {
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader>
-          <DrawerTitle>Are you absolutely sure?</DrawerTitle>
-          <DrawerDescription>This action cannot be undone.</DrawerDescription>
+          <Button
+            asChild
+            variant={"outline"}
+            size={"icon"}
+            className="rounded-full"
+          >
+            <DrawerClose>
+              <XMarkIcon className="size-8" />
+            </DrawerClose>
+          </Button>
         </DrawerHeader>
-        <DrawerFooter>
-          <Button>Submit</Button>
-          <DrawerClose>
-            <Button variant="outline">Cancel</Button>
-          </DrawerClose>
-        </DrawerFooter>
+        <DrawerFooter>Footer</DrawerFooter>
       </DrawerContent>
     </Drawer>
   );
