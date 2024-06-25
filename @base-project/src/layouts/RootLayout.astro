@@ -1,5 +1,6 @@
 ---
-import { Navbar } from "@/components/blocks/Navbar";
+import { ViewTransitions } from "astro:transitions";
+import { Navbar } from "@/components/blocks/Navbar/index";
 import "@/styles/base.css";
 
 interface Props {
@@ -38,6 +39,7 @@ const navLinks = [
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{TITLE}</title>
+    <ViewTransitions />
   </head>
   <body>
     <Navbar navLinks={navLinks} client:load />
