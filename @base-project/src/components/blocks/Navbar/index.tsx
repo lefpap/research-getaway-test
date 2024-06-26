@@ -21,6 +21,7 @@ import {
 
 import { cn } from "@/lib/utils";
 import { NavbarProvider, useNavbarContext } from "./context";
+import ThemeToggle from "@/components/shared/ThemeToggle";
 
 interface NavbarProps {
   navLinks: {
@@ -62,9 +63,7 @@ function NavbarDesktop({ className }: { className?: string }) {
         <Button variant={"outline"} size={"icon"} className="rounded-full">
           <MagnifyingGlassIcon className="size-5" />
         </Button>
-        <Button variant={"outline"} size={"icon"} className="rounded-full">
-          <MoonIcon className="size-5" />
-        </Button>
+        <ThemeToggle />
         <Button variant={"outline"} size={"icon"} className="rounded-full">
           <RssIcon className="size-5" />
         </Button>
@@ -98,11 +97,16 @@ function NavbarDrawer() {
 
   return (
     <Drawer direction="right">
-      <DrawerTrigger>
-        <Button variant={"outline"} size={"icon"} className="rounded-full">
+      <Button
+        asChild
+        variant={"outline"}
+        size={"icon"}
+        className="rounded-full"
+      >
+        <DrawerTrigger>
           <Bars3Icon className="size-5" />
-        </Button>
-      </DrawerTrigger>
+        </DrawerTrigger>
+      </Button>
       <DrawerContent>
         <DrawerHeader>
           <Button
